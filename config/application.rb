@@ -77,7 +77,12 @@ module Bi
 
     if ["development", "test"].include?(Rails.env)
       config.action_mailer.smtp_settings = {
-      }
+      :user_name => 'jthullbery287',
+      :password => 'test1234',
+      :address => 'smtp.sendgrid.net',
+      :port => '587',
+      :authentication => :login
+    }
     else
       settings = YAML::load(File.open("#{Rails.root}/config/settings.yml"))["smtp_options"]
       config.action_mailer.smtp_settings = {

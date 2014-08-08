@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140515215822) do
+ActiveRecord::Schema.define(:version => 20140610000000) do
 
   create_table "kpi_results", :force => true do |t|
     t.date     "date"
@@ -69,12 +69,12 @@ ActiveRecord::Schema.define(:version => 20140515215822) do
 
   create_table "users", :force => true do |t|
     t.string   "name",          :null => false
-    t.integer  "pushparty_id",  :null => false
+    t.integer  "omniauth_id",   :null => false
     t.string   "email_address"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
 
-  add_index "users", ["pushparty_id"], :name => "index_users_on_pushparty_id", :unique => true
+  add_index "users", ["omniauth_id"], :name => "index_users_on_omniauth_id", :unique => true
 
 end
