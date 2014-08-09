@@ -17,7 +17,7 @@ role :db,  %w{162.242.208.190}
 
 server '162.242.208.190', user: 'kpdev', roles: %w{web app}
 
-
+set :linked_files, %w{config/database.yml config/data_sources.yml}
 # Custom SSH Options
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a
