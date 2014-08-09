@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
 
   def ensure_logged_in
     logger.debug('Ensured Logged In Begin')
-    unless (request.referer.blank? && session['redirected'].present?)
+    unless session['redirected'].present?
       logger.debug('Request: ' + request.referer.to_s)
-      if request.referer.present? && (URI.parse(request.referer).host.include?('0.0.0.0') || URI.parse(request.referer).host.include?('klickpush.com'))
+      if request.referer.present? && (URI.parse(request.referer).host.include?('0.0.0.0') || URI.parse(request.referer).host.include?('prod1.klickpush.com'))
         logger.debug('Setting Session')
         session['redirected'] = 1
       else
