@@ -7,7 +7,7 @@ require 'capistrano/deploy'
 # Incudes all
 require 'capistrano/rails'
 
-require 'rvm1/capistrano3'
+# require 'rvm1/capistrano3'
 
 require 'capistrano/rvm'
 
