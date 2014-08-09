@@ -18,7 +18,7 @@ gem 'typhoeus'
 gem 'textacular', '~> 3.0', :require => 'textacular/rails'
 gem 'chronic'
 gem 'query_result_presenter'
-
+gem 'therubyracer'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -59,7 +59,11 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano', '~> 3.1'
+gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-rvm'
+# https://github.com/rvm/rvm1-capistrano3
+# gem 'rvm1-capistrano3', require: false
 
 # To use debugger
 # gem 'debugger'

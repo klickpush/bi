@@ -67,27 +67,20 @@ module Bi
     config.assets.version = '1.0'
 
     # SSL Everything
-    if ["production", "testing"].include?(Rails.env)
-      config.force_ssl = true
-    end
+    # if ["production", "testing"].include?(Rails.env)
+    #   config.force_ssl = true
+    # end
 
 
     # Setup email
     config.action_mailer.delivery_method = :smtp
 
-    if ["development", "test"].include?(Rails.env)
-      config.action_mailer.smtp_settings = {
-      :user_name => 'jthullbery287',
-      :password => 'test1234',
-      :address => 'smtp.sendgrid.net',
-      :port => '587',
-      :authentication => :login
-    }
-    else
-      settings = YAML::load(File.open("#{Rails.root}/config/settings.yml"))["smtp_options"]
-      config.action_mailer.smtp_settings = {
-      }
-    end
+    config.action_mailer.smtp_settings = {
+    :user_name => 'jthullbery287',
+    :password => 'test1234',
+    :address => 'smtp.sendgrid.net',
+    :port => '587',
+    :authentication => :login
 
     # Save all tags as lower case
     ActsAsTaggableOn.force_lowercase = true
