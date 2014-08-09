@@ -3,18 +3,18 @@ class ApplicationController < ActionController::Base
   before_filter :ensure_logged_in
 
   def ensure_logged_in
-    console.log('Ensured Logged In Begin')
+    logger.debug('Ensured Logged In Begin')
     unless (request.referer.blank? && session['redirected'].present?)
-      console.log('Request: ' + request.referer)
-      if request.referer.present? && (URI.parse(request.referer).host.include?('0.0.0.0')  || URI.parse(request.referer).host.include?('klickpush.com') )
-        console.log('Setting Session')
+      logger.debug('Request: ' + request.referer.to_s)
+      if request.referer.present? && (URI.parse(request.referer).host.include?('0.0.0.0') || URI.parse(request.referer).host.include?('klickpush.com'))
+        logger.debug('Setting Session')
         session['redirected'] = 1
       else
-        console.log('Failed to set session')
+        logger.debug('Failed to set session')
         reset_session
         redirect_to 'https://www.klickpush.com'
       end
     end
-    console.log('Ensured Logged In End')
+    logger.debug('Ensured Logged In End')
   end
 end
