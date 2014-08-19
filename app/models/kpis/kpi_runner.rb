@@ -6,12 +6,13 @@ class KpiRunner
 
   def run_kpis
     add_db_kpis
-    add_performance_kpis
+    # add_performance_kpis
   end
 
-  def add_performance_kpis
-    PerformanceKpis.new.create_kpi_performance_results unless @rerun
-  end
+  # Custom work from the original team: https://github.com/paperlesspost/bi/issues/13
+  # def add_performance_kpis
+  #   PerformanceKpis.new.create_kpi_performance_results unless @rerun
+  # end
 
   def add_db_kpis
     Kpi.active.each do |k|
